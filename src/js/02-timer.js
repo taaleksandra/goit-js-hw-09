@@ -5,7 +5,7 @@ import flatpickr from 'flatpickr';
 // Dodatkowy import stylów
 import 'flatpickr/dist/flatpickr.min.css';
 
-const dataInput = document.querySelector('#datatime-picker');
+const dataInput = document.querySelector('#datetime-picker');
 const startBtn = document.querySelector('button');
 
 const daysField = document.querySelector('span[data-days]');
@@ -74,7 +74,13 @@ const startTimer = () => {
     hoursField.textContent = addLeadingZero(hours.toString());
     minutesField.textContent = addLeadingZero(minutes.toString());
     secondsField.textContent = addLeadingZero(seconds.toString());
+
+    dataMilliseconds -= 1000;
+    if (dataMilliseconds <= 0) {
+      clearInterval(timerId);
+    }
   }, 1000);
 };
 
 const selectInput = flatpickr(dataInput, options);
+startBtn.addEventListener('click', startTimer);
