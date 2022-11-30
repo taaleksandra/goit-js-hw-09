@@ -30,9 +30,8 @@ const options = {
 
     if (selectedDates[0].getTime() < options.defaultDate.getTime()) {
       Notiflix.Notify.init({
-        position: 'left-top',
         fontSize: '1.5rem',
-        width: '16.5vw',
+        width: '25vw',
         fontAwesomeIconSize: '1.5rem',
       });
       Notiflix.Notify.warning('Please choose a date in the future');
