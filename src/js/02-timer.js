@@ -24,6 +24,11 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
+    clearInterval(timerId);
+    daysField.textContent = '00';
+    hoursField.textContent = '00';
+    minutesField.textContent = '00';
+    secondsField.textContent = '00';
     console.log(selectedDates[0]);
     dataMilliseconds =
       selectedDates[0].getTime() - options.defaultDate.getTime();
