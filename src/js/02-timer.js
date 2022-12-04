@@ -29,7 +29,7 @@ const options = {
     hoursField.textContent = '00';
     minutesField.textContent = '00';
     secondsField.textContent = '00';
-    console.log(selectedDates[0]);
+    console.log(`Wybrano datę: ${selectedDates[0]}`);
     dataMilliseconds =
       selectedDates[0].getTime() - options.defaultDate.getTime();
 

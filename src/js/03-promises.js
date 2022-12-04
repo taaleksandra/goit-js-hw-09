@@ -15,10 +15,10 @@ function createPromise(position, delay) {
     setTimeout(() => {
       if (shouldResolve) {
         // Fulfill
-        resolve(position, delay);
+        resolve({ position, delay });
       } else {
         // Reject
-        reject(position, delay);
+        reject({ position, delay });
       }
     }, delay);
   });
@@ -36,9 +36,12 @@ const renderMessage = (position, delay) => {
 
 const btnHandler = event => {
   event.preventDefault();
+  const delayValue = Number(form.elements.delay.value);
+  const stepValue = Number(form.elements.step.value);
+
   for (let i = 0; i < form.elements.amount.value; i++) {
     promiseNumber = i + 1;
-    delayPromise = form.elements.delay.value + form.elements.step.value * i;
+    delayPromise = delayValue + stepValue * i;
     renderMessage(promiseNumber, delayPromise);
   }
 };
